@@ -55,13 +55,22 @@ test_data = datasets.MNIST(
 
 ![003](./screenshots/003.png)
 
-If also the last step worked you are all set. Just follow resource
-number 2 to get started with CNNs.
+Check if the images are there with matplot library.
 
+```py
+import matplotlib.pyplot as plt
+plt.imshow(train_data.data[0], cmap='gray')
+plt.title('%i' % train_data.targets[0])
+plt.show()
+```
+
+If also the last step worked you are all set. Just follow the resources.
 Or simply search for simple neural networks to do anything, the internet
 it's full of them.
 
 ## Resources
 
-1. PyTorch get started: https://pytorch.org/get-started/locally
-2. PyTorch CNN tutorial: https://medium.com/@nutanbhogendrasharma/pytorch-convolutional-neural-network-with-mnist-dataset-4e8a4265e118
+1. 3Blue1Brown: https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
+2. PyTorch get started: https://pytorch.org/get-started/locally
+3. Google Colab: https://colab.research.google.com
+3. PyTorch tutorial: https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html
