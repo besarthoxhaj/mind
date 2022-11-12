@@ -1,0 +1,91 @@
+<style>
+  .tools {
+    width: 280px;
+  }
+
+  .tools button {
+    border: 2px solid black;
+    width: 95px;
+    border-radius: 0px;
+  }
+</style>
+
+<body>
+  <div>
+    <div>
+      <button id="clear">Clear</button>
+    </div>
+    <div>
+      <input type="hidden" id="canvasimg" name="canvasimg">
+      <canvas id="canvas" width="280" height="280"></canvas>
+    </div>
+    <div>
+      <button onclick="canvastoimage()">
+        Detect Number
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Canvas Drawing
+    window.addEventListener('load', () => {
+      const canvas = document.querySelector('#canvas');
+      const context = canvas.getContext('2d');
+      context.fillStyle = "black";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+
+      let radius = 10;
+      let start = 0;
+      let end = Math.PI * 2;
+      let dragging = false;
+
+      context.lineWidth = radius * 2;
+      context.lineCap = 'round';
+
+      const putPoint = (e) => {
+        if (dragging) {
+          context.fillStyle = "white";
+          context.strokeStyle = "white";
+          context.lineTo(e.offsetX, e.offsetY);
+          context.stroke();
+          context.beginPath();
+          context.arc(e.offsetX, e.offsetY, radius, start, end);
+          context.fill();
+          context.beginPath();
+          context.moveTo(e.offsetX, e.offsetY);
+        }
+      }
+
+      const engage = (e) => {
+        dragging = true;
+        putPoint(e);
+      }
+
+      const disengage = () => {
+        dragging = false;
+        context.beginPath();
+      }
+
+      canvas.addEventListener('mousedown', engage);
+      canvas.addEventListener('mousemove', putPoint);
+      canvas.addEventListener('mouseup', disengage);
+
+      const clear = document.querySelector('#clear');
+      clear.addEventListener('click', () => {
+        const canvas = document.querySelector('#canvas');
+        const context = canvas.getContext('2d');
+        context.filter = 'invert(0)';
+        context.fillStyle = "black";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+      });
+    });
+
+    // Submit
+    const canvastoimage = () => {
+      const canvas = document.querySelector('#canvas');
+      document.getElementById('canvasimg').value = canvas.toDataURL();
+      console.log('canvas.toDataURL()', canvas.toDataURL());
+    };
+  </script>
+</body>
+</html>
