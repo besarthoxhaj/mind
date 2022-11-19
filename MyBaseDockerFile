@@ -1,0 +1,24 @@
+FROM python:3.7 
+
+USER root
+
+RUN pip3 install jupyter
+RUN pip3 install jupyterlab
+RUN pip3 install pandas
+RUN pip3 install matplotlib
+RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+RUN pip3 install opencv-python
+
+# Instructions:
+# docker build --file MyBaseDockerFile .
+# docker image ls
+# docker container run --publish=8888:8888 --tty --detach --interactive --volume ${PWD}/volume:/test {IMAGE}
+# docker container ls
+# docker exec --it {CONTAINER} /bin/bash
+
+# Then inside the docker container run:
+# jupyter notebook --allow-root --ip=0.0.0.0
+# jupyter lab --allow-root --ip=0.0.0.0
+
+# Few more checks:
+# !jupyter --version

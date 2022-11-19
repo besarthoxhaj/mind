@@ -64,6 +64,8 @@ plt.title('%i' % train_data.targets[0])
 plt.show()
 ```
 
+![004](./screenshots/004.png)
+
 If also the last step worked you are all set. Just follow the resources.
 Or simply search for simple neural networks to do anything, the internet
 it's full of them.

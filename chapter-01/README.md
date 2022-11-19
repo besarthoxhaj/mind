@@ -7,8 +7,8 @@ from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 
-# Download training data from open datasets.
-training_data = datasets.MNIST(
+# Download train data from open datasets.
+train_data = datasets.MNIST(
     root="data",
     train=True,
     download=True,
@@ -27,7 +27,7 @@ batch_size = 64
 epochs = 5
 
 # Create data loaders.
-train_dataloader = DataLoader(training_data, batch_size=batch_size)
+train_dataloader = DataLoader(train_data, batch_size=batch_size)
 test_dataloader = DataLoader(test_data, batch_size=batch_size)
 
 for X, y in test_dataloader:
