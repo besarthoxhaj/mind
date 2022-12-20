@@ -14,7 +14,7 @@ RUN pip3 install opencv-python
 # docker image ls
 # docker container run --publish=8888:8888 --tty --detach --interactive --volume ${PWD}/volume:/test {IMAGE}
 # docker container ls
-# docker exec --it {CONTAINER} /bin/bash
+# docker exec -it {CONTAINER} /bin/bash
 
 # Then inside the docker container run:
 # jupyter notebook --allow-root --ip=0.0.0.0
