@@ -7,9 +7,8 @@ $ git clone https://github.com/besarthoxhaj/mind.git
 $ cd mind/
 $ mkdir work
 $ docker builder prune
-$ docker build .
-$ docker image ls
-$ docker run --rm -p 8888:8888 -v "$PWD"/work:/home/jovyan/work {image}
+$ docker build . -t mind
+$ docker run --rm -p 8888:8888 -v "$PWD"/work:/home/jovyan/work mind
 # Entered start.sh with args: jupyter la
 # ...
 # http://127.0.0.1:8888/lab
