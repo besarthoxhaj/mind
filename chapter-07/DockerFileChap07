@@ -1,0 +1,55 @@
+FROM python:3.7
+
+USER root
+
+RUN pip3 install jupyter
+RUN pip3 install jupyterlab
+RUN pip3 install pandas
+RUN pip3 install matplotlib
+RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+RUN pip3 install opencv-python-headless
+RUN pip3 install fastapi
+RUN pip3 install uvicorn
+
+# Instructions:
+# $ docker build --file ./chapter-07/DockerFileChap07 .
+# $ docker tag {IMAGE} chap07
+# $ docker image ls
+# --tty:
+#         This option allocates a pseudo-TTY (terminal) for
+#         the container. This allows you to interact with the
+#         container in a terminal-like interface. Run a container
+#         with no options and by default you have a stdout stream
+#         (so docker run | <cmd> works); run with -i, and you get
+#         stdin stream added (so <cmd> | docker run -i works);
+#         use -t, usually in the combination -it and you have a
+#         terminal driver added, which if you are interacting with
+#         the process is likely what you want. It basically makes
+#         the container start look like a terminal connection session.
+# --detach:
+#         This option runs the container in the background and
+#         detaches it from the terminal. This allows you to run
+#         the container without having to keep the terminal window
+#         open.
+# --interactive:
+#         This option keeps the container's stdin open, which allows
+#         you to attach to the container and interact with it.
+# --publish=8888:8888:
+#         This option exposes a port on the host machine and maps it
+#         to a port on the container. In this case, it exposes port
+#         8888 on the host machine and maps it to port 8888 on the
+#         container. This allows you to access the container's services
+#         through the host machine's port 8888.
+# $ docker container run --publish=8888:8888 --publish=8080:8080 --tty --detach --interactive --volume ${PWD}/chapter-07:/chapter-07 {IMAGE}
+# $ docker container ls
+# $ docker exec -it {CONTAINER} /bin/bash
+
+# Then inside the docker container run:
+# $ jupyter notebook --allow-root --ip=0.0.0.0
+# $ jupyter lab --allow-root --ip=0.0.0.0
+# $ uvicorn main:app --reload --port 8080 --host 0.0.0.0
+# Then navigate to http://127.0.0.1:8080 to see the app
+# running. Answer from https://stackoverflow.com/q/70083924
+
+# Few more checks:
+# !jupyter --version
