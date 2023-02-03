@@ -1,0 +1,21 @@
+FROM python:3.7
+
+USER root
+
+RUN pip3 install jupyter
+RUN pip3 install jupyterlab
+RUN pip3 install pandas
+RUN pip3 install matplotlib
+RUN pip3 install torch --extra-index-url https://download.pytorch.org/whl/cpu
+RUN pip3 install 'nodejs-bin[cmd]'
+RUN pip3 install --upgrade "elyra[all]"
+CMD jupyter lab --allow-root --ip=0.0.0.0 --port=5050
+
+# Instructions:
+# $ docker build --file ./chapter-09/DockerFile -t chap09 .
+# $ docker image ls
+# $ docker run --publish=5050:5050 --volume ${PWD}/chapter-09:/chapter-09 chap09
+
+# Then inside the docker container run:
+# $ jupyter notebook --allow-root --ip=0.0.0.0
+# $ jupyter lab --allow-root --ip=0.0.0.0
