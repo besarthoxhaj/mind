@@ -6,6 +6,7 @@ Feel free to seek help and ask questions during the meetup. We will stop at 20:3
 
 If you are a complete beginner aim to submit a working solution, don’t worry about your model accuracy.
 
+
 ## Titanic
 https://www.kaggle.com/competitions/titanic
 
