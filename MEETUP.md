@@ -1,7 +1,7 @@
 # Machine Learning @ Founders & Coders
 
-WIFI network: Space4
-WIFI password: c00perative
+- WIFI network: Space4
+- WIFI password: c00perative
 
 We will work in pairs. Find another learner at roughly your same skill level and tackle one of the listed Kaggle competitions.
 
