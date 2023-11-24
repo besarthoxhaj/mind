@@ -3,3 +3,4 @@ volume
 data
 .ipynb_checkpoints
 __pycache__
+*.pt
