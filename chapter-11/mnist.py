@@ -48,7 +48,7 @@ if __name__ == "__main__":
   opt = torch.torch.optim.SGD(myCnn.parameters(), lr=1e-3)
 
 
-  for t in range(3):
+  for t in range(6):
     for idx, (x, y) in enumerate(trn_dl):
       x, y = x.to(device), y.to(device)
       logits = myCnn(x)
