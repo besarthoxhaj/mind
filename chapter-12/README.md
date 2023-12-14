@@ -8,6 +8,11 @@ deploy a simple web app using Kubernetes.
   style="border: 1px solid grey; width: 100%;"
 />
 
+<img
+  src="https://cdn.mlx.institute/assets/k3s-steps.png"
+  style="border: 1px solid grey; width: 100%;"
+/>
+
 ## Building the WebApp
 
 First what you need to do is add all the files of the
